@@ -1,28 +1,34 @@
-import React from 'react'
-import {Products} from "../../products";
+import React, { useEffect, useState } from 'react'
 import {ProdRend} from "./prod_rend";
 import "./shop.css";
+import getProducts from '../../products'
 
 
 function product(a)
 {
     return(
         <div>
-        <ProdRend key={a.id} name={a.productName}  price={a.price} imgURL={a.productImage}/>
+        <ProdRend key={a.id} name={a.name}  price={a.price} imgURL={a.photos[0]}/>
         </div>
     );
 }
 
 
 export const Shop = () => {
-  return (
-    <div className='shop'>
-        <div>
-            <h1 style={{textAlign:'center'}}>Sleazy-n-eazy clothing</h1>
+    let [ products, setProducts ] = useState([])
+
+    useEffect(() => {
+        getProducts().then(products => setProducts(products))
+    }, [])
+    
+    return (
+        <div className='shop'>
+            <div>
+                <h1 style={{textAlign:'center'}}>Sleazy-n-eazy clothing</h1>
+            </div>
+            <div className='products'>
+                {products.map(product)}
+            </div>
         </div>
-        <div className='products'>
-            {Products.map(product)}
-        </div>
-    </div>
-  )
+    )
 }
