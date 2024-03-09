@@ -6,7 +6,6 @@ export function ProdRend(props)
     //const {addToCart} =useContext(ShopContext);
 
     return(
-    <div className="products">    
         <div className="product">
             <img src={props.imgURL} />
             <div className="description">
@@ -16,7 +15,6 @@ export function ProdRend(props)
 
             <button className="addToCartBttn">Add to cart</button>
         </div>
-    </div>    
     );
 }
 
