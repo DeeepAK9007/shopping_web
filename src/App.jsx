@@ -4,23 +4,25 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { Navbar } from "./components/navbar";
 import { Shop } from "./pages/shop/shop";
 import { Cart } from "./pages/cart/cart";
-//import { ShopContextProvider } from "./context/shop-context";
+import Login from "./pages/login/login"
+import { UserContextProvider } from "./context/UserContext"
 
 
 function App()
 {
     return(
-    //<ShopContextProvider>
-        <div className="App">
-            <Router>
-            <Navbar />
-                <Routes>
-                    <Route path="/" element={<Shop />} />
-                    <Route path="/cart" element={<Cart />} />
-                </Routes>
-            </Router>
-        </div>
-    //</ShopContextProvider>    
+        <UserContextProvider>
+            <div className="App">
+                <Router>
+                <Navbar />
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/" element={<Shop />} />
+                        <Route path="/cart" element={<Cart />} />
+                    </Routes>
+                </Router>
+            </div>
+        </UserContextProvider>    
     );
 }
 
