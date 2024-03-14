@@ -14,6 +14,11 @@ export function UserContextProvider ({ children }) {
         const auth = getAuth()
 
         onAuthStateChanged(auth, async u => {
+            if (u == null) {
+                setUser(null)
+                return
+            }
+            
             let userDocref = doc(db, "users", u.uid)
             let userDoc = await getDoc(userDocref)
 
