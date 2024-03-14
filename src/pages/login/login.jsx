@@ -17,6 +17,6 @@ export default function Login () {
     }
 
     return (
-        <button onClick={handleLogin}>Login with Google</button>
+        <button onClick={handleLogin}>Login with google</button>
     )
 }
