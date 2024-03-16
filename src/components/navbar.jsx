@@ -15,11 +15,13 @@ export const Navbar = () => {
 	return (
 		<div className="navbar">
 			<div className="links">
+				<Link to="/add_merch">Make some bucks here</Link>
 				{ user == null ?
 					<Link to="/login">Login</Link>
 					:
 					<Link onClick={handleLogout}>Logout</Link>
 				}
+				<Link to="/Shop">Shop</Link>
 			</div>
 		</div>
 	)

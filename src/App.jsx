@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route, Outlet, Navigate} from "react-ro
 import { Navbar } from "./components/navbar";
 import { Shop } from "./pages/shop/shop";
 import Login from "./pages/login/login"
+import Merch from "./pages/add_merch/add_merch";
 import { UserContext, UserContextProvider } from "./context/UserContext"
 
 
@@ -32,6 +33,15 @@ function App()
                         <Route element={<IfnotAuth />}>
                             <Route path="/login" element={<Login />} />
                         </Route>
+                        
+                        <Route>
+                            <Route path="/add_merch" element={<Merch />}></Route>
+                        </Route>
+
+                        <Route>
+                            <Route path="/Shop" element={<Shop />}></Route>
+                        </Route>
+
                     </Routes>
                 </Router>
             </div>

@@ -7,7 +7,7 @@ import getProducts from '../../products'
 function product(a)
 {
     return(
-        <ProdRend key={a.id} name={a.name}  price={a.price} imgURL={a.photos[0]}/>
+        <ProdRend key={a.id} name={a.name}  price={a.price}/>
     );
 }
 
