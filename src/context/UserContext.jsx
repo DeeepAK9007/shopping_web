@@ -2,7 +2,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { useEffect } from "react"
 import { useState } from "react"
 import { createContext } from "react"
-import db from "../helpers/firebase"
+import { db } from "../helpers/firebase"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 
 export let UserContext = createContext(null)

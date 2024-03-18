@@ -1,61 +1,38 @@
 import React, { useState } from "react";
 import "./add_merch.css";
 import { collection, addDoc } from "firebase/firestore";
-import db from "../../helpers/firebase";
+import { db, storage } from "../../helpers/firebase";
 import "firebase/firestore";
 import {getDownloadURL, uploadBytes } from "firebase/storage";
 import {ref} from "firebase/storage";
-import {storage} from "../../helpers/firebase";
+import { useNavigate } from "react-router-dom";
 
 function Merch()
 {
-
+    let navigate = useNavigate()
     const [name, setName] = useState('');
     const [club, setClub] = useState('');
     const [price, setPrice] = useState('');
     const [image,setimage]= useState(null);
 
-    function data(e)
-    {
-        e.preventDefault();
-        setName(e.target.value);
-    }
-
-    function data1(e)
-    {
-        e.preventDefault();
-        setClub(e.target.value);
-    }
-    
-    function data2(e)
-    {
-        e.preventDefault();
-        setPrice(e.target.value);
-    }
-
-    console.log(name);
-    console.log(club);
-    console.log(price);
-
-    let a="";
-
     async function submission(e)
     {
-        const imgref=ref(storage,'images/${imageUpload.name}.jpg');
-
-        uploadBytes(imgref,image).then((snapshot) => {return getDownloadURL(snapshot.ref);}).then(downloadurl => {console.log('DOWNLOAD URL:',downloadurl);a=downloadurl;})
-
         e.preventDefault();
+        const imgref=ref(storage, `images/${image.name}.jpg`);
+
+        let snapshop = await uploadBytes(imgref,image)
+        let imageUrl = await getDownloadURL(snapshop.ref)
+
         const doc_ref= await addDoc(collection(db,"merch"),{
             club: club,
             name: name,
             price: price,
-            photo: a
+            photo: [imageUrl]
         });
 
         alert("your product has been added to database");
 
-        document.getElementById("form").reset();
+        navigate("/")
     }
 
     return(
@@ -64,10 +41,10 @@ function Merch()
             <h1>Sell your stuff!!</h1>
             
             <form className="form">
-                <input className="inp" name="p_name" type="text" placeholder="Product Name" value={name} required onChange={data}></input>
-                <input className="inp" name="club" type="text" placeholder="Belonging club" value={club} required onChange={data1}></input>
-                <input className="inp" name="image" type="file" accept="image/png, image/jpeg" placeholder="Upload Photo" onChange={(event)=>{setimage(event.target.files[0]);}} />
-                <input className="inp" name="price" type="number" placeholder="Price" value={price} required onChange={data2}></input>
+                <input className="inp" type="text" placeholder="Product Name" value={name} required onChange={e => setName(e.target.value)}></input>
+                <input className="inp" type="text" placeholder="Belonging club" value={club} required onChange={e => setClub(e.target.value)}></input>
+                <input className="inp" type="file" accept="image/png, image/jpeg" placeholder="Upload Photo" onChange={e => setimage(e.target.files[0]) } />
+                <input className="inp" type="number" placeholder="Price" value={price} required onChange={e => setPrice(e.target.value)}></input>
                 <button type="submit" onClick={submission}>Submit</button>
             </form>
 

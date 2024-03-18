@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore"
-import db from "./helpers/firebase"
+import { db } from "./helpers/firebase"
 
 export default async function getProducts () {
     let col = collection(db, "merch")
@@ -10,7 +10,7 @@ export default async function getProducts () {
             id: doc.id,
             name: doc.get("name"),
             price: doc.get("price"),
-            photos: doc.get("photos")
+            photo: doc.get("photo")
         }
     })
 
