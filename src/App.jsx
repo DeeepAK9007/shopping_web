@@ -6,7 +6,7 @@ import { Shop } from "./pages/shop/shop";
 import Login from "./pages/login/login"
 import Merch from "./pages/add_merch/add_merch";
 import { UserContext, UserContextProvider } from "./context/UserContext"
-
+import OrderHistory from "./pages/order_history/order_history";
 
 function App()
 {
@@ -41,7 +41,9 @@ function App()
                         <Route>
                             <Route path="/Shop" element={<Shop />}></Route>
                         </Route>
-
+                        <Route>
+                            <Route path="/order_history" element={<OrderHistory />}></Route>
+                        </Route>
                     </Routes>
                 </Router>
             </div>
