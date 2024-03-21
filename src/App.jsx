@@ -12,7 +12,6 @@ import { UserContext, UserContextProvider } from "./context/UserContext"
 function App()
 {
     let user = useContext(UserContext)
-    console.log(user)
 
     const RequireAuth = () => {
         return user ? <Outlet /> : <Navigate to="/login" />;
