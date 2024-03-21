@@ -4,10 +4,6 @@ import { UserContext } from "../../context/UserContext"
 
 export default function Login () {
     let user = useContext(UserContext)
-    
-    useEffect(() => {
-        console.log("From context: ", user)
-    }, [user])
 
     async function handleLogin () {
         const provider = new GoogleAuthProvider()

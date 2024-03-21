@@ -5,12 +5,14 @@ import { Navbar } from "./components/navbar";
 import { Shop } from "./pages/shop/shop";
 import Login from "./pages/login/login"
 import Merch from "./pages/add_merch/add_merch";
+import ManageMerch from './pages/manage_merch/manage_merch'
 import { UserContext, UserContextProvider } from "./context/UserContext"
 
 
 function App()
 {
     let user = useContext(UserContext)
+    console.log(user)
 
     const RequireAuth = () => {
         return user ? <Outlet /> : <Navigate to="/login" />;
@@ -28,18 +30,12 @@ function App()
                     <Routes>
                         <Route element={<RequireAuth />}>
                             <Route path="/" element={<Shop />} />
+                            <Route path="/add_merch" element={<Merch />}></Route>
+                            <Route path="/manage/:merchId" element={<ManageMerch />}></Route>
                         </Route>
                         
                         <Route element={<IfnotAuth />}>
                             <Route path="/login" element={<Login />} />
-                        </Route>
-                        
-                        <Route>
-                            <Route path="/add_merch" element={<Merch />}></Route>
-                        </Route>
-
-                        <Route>
-                            <Route path="/Shop" element={<Shop />}></Route>
                         </Route>
 
                     </Routes>
