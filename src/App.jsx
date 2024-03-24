@@ -5,8 +5,9 @@ import { Navbar } from "./components/navbar";
 import { Shop } from "./pages/shop/shop";
 import Login from "./pages/login/login"
 import Merch from "./pages/add_merch/add_merch";
-import ManageMerch from './pages/manage_merch/manage_merch'
-import { UserContext, UserContextProvider } from "./context/UserContext"
+import OrderHistory from "./pages/order_history/order_history";
+import ManageMerch from './pages/manage_merch/manage_merch';
+import { UserContext, UserContextProvider } from "./context/UserContext";
 
 
 function App()
@@ -35,6 +36,9 @@ function App()
                         
                         <Route element={<IfnotAuth />}>
                             <Route path="/login" element={<Login />} />
+                        </Route>
+                        <Route>
+                            <Route path="/order_history" element={<OrderHistory />}></Route>
                         </Route>
 
                     </Routes>
