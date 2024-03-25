@@ -13,7 +13,7 @@ export default async function getOrders () {
             delivery: doc.get("delivery"),
             fulfilled: doc.get("fulfilled"),
             orderedAt: doc.get("ordered_at"),
-            quantity:doc.get("qnty"),
+            quantity:doc.get("quantity"),
             size:doc.get('size'),
         }
     })

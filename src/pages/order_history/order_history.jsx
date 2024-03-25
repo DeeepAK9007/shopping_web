@@ -5,19 +5,9 @@ import getOrders from '../../orders';
 import getProducts from '../../products';
 import { UserContext } from "../../context/UserContext";
 
-
-// import React, { useState,useContext, useEffect} from "react";
-// import { collection, addDoc } from "firebase/firestore";
-// import { db, storage } from "../../helpers/firebase";
-// import {getDownloadURL, uploadBytes } from "firebase/storage";
-// import {ref} from "firebase/storage";
-// import { useNavigate } from "react-router-dom";
-
-
-
 function OrderHistory() {
     let user = useContext(UserContext);
-     console.log('user....',user);
+    // console.log('user....',user);
     const [ orders, setOrders ] = useState([]);
     const [ products, setProducts ] = useState([]);
     const [ orderDetails, setOrderDetails ] = useState([]);
@@ -80,6 +70,18 @@ function OrderHistory() {
         fontWeight: 'bold',
     };
 
+    const headerStyle = {
+        fontWeight: 'bold',
+        marginBottom: '10px',
+        textAlign: 'center'
+      };
+
+      const conditionStyle = {
+        fontWeight: 'bold',
+        margintop: '100px',
+        textAlign: 'center'
+      };
+
     const titleStyle = {
         fontSize: '18px',
         fontWeight: 'bold',
@@ -97,10 +99,10 @@ function OrderHistory() {
 
       return(
         <>
-            {user ? (
+            {user && orderDetails.length > 0 ? (
               <div style={pageStyle}>
-                  <h1>Order History for {user.displayName}</h1>
-                  {orderDetails.map((orderDetail) => (
+                  <h1 style={headerStyle}>Order History for {user.displayName}</h1>
+                  {orderDetails.map((orderDetail) => (              
                       <div className="centered-container" style={centeredContainer} key={orderDetail.id}>
                           <div className="card" style={cardStyle}>
                             <h3 style={titleStyle}>ORDER ID: {orderDetail.id}</h3>
@@ -125,7 +127,10 @@ function OrderHistory() {
               </div>
        
             ) : (
-                <div>Please log in to view your order history.</div>
+                <div>
+        {!user && <div><h1 style={conditionStyle}>Please log in to view your order history.</h1></div>}
+        {user && orderDetails.length === 0 && <div><h1 style={conditionStyle}>No Orders Placed.</h1></div>}
+    </div>
             )}
         </>
       );

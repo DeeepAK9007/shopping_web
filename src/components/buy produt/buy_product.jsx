@@ -32,10 +32,12 @@ function Buy()
         );
     }
     
-    console.log(id);
+    // console.log(id);
 
     async function place_order(e)
     {
+        // console.log('e....',e);
+        // console.log('size....',size);
         e.preventDefault();
         const uplo=await addDoc(collection(db,"orders"),{
             size:size,
@@ -49,11 +51,11 @@ function Buy()
         alert("your order has been placed successfully and is in transit");
     }
 
-    let [size,setsize]=useState('');
+    let [size,setsize]=useState('XS');
     let [delivery,setdeli]=useState('');
     let [qnty,setqnty]=useState(0);
 
-    console.log(user.uid,size,delivery,qnty);
+    // console.log(user.uid,size,delivery,qnty);
 
     return(
         merch ?
@@ -72,7 +74,7 @@ function Buy()
                         <br></br>
                         <div>
                             <label>Size</label>
-                            <select value={size} required onChange={e => setsize(e.target.value)}>
+                            <select  name = 'size' value={size} required onChange={e => setsize(e.target.value)}>
                                 <option>XS</option>
                                 <option>S</option>
                                 <option>M</option>
