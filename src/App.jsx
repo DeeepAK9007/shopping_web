@@ -8,6 +8,7 @@ import Merch from "./pages/add_merch/add_merch";
 import OrderHistory from "./pages/order_history/order_history";
 import ManageMerch from './pages/manage_merch/manage_merch';
 import { UserContext, UserContextProvider } from "./context/UserContext";
+import Buy from "./components/buy produt/buy_product";
 
 
 function App()
@@ -32,21 +33,18 @@ function App()
                             <Route path="/" element={<Shop />} />
                             <Route path="/add_merch" element={<Merch />}></Route>
                             <Route path="/manage/:merchId" element={<ManageMerch />}></Route>
+                            <Route path="/merch/:id" element={<Buy />}></Route>
                         </Route>
-                        
                         <Route element={<IfnotAuth />}>
                             <Route path="/login" element={<Login />} />
                         </Route>
                         <Route>
                             <Route path="/order_history" element={<OrderHistory />}></Route>
                         </Route>
-
                     </Routes>
                 </Router>
             </div>
         </UserContextProvider>    
     );
 }
-
-
 export default App;

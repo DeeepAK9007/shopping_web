@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useHistory, } from "react";
+import { Link } from "react-router-dom";
 //import { ShopContext } from "../../context/shop-context";
 
 export function ProdRend(props)
 {
     //const {addToCart} =useContext(ShopContext);
+
 
     return(
         <div className="product">
@@ -12,8 +14,7 @@ export function ProdRend(props)
                 <h2>{props.name}</h2>
                 <h3>{props.price}</h3>
             </div>
-
-            <button className="addToCartBttn">Add to cart</button>
+            <Link className="addToCartBttn" to={`/merch/${props.id}`}>Add to cart</Link>
         </div>
     );
 }

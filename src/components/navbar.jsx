@@ -21,8 +21,8 @@ export const Navbar = () => {
 					:
 					<Link onClick={handleLogout}>Logout</Link>
 				}
-				<Link to="/Shop">Shop</Link>
 				<Link to="/order_history">Order History</Link>
+				<Link to="/">Shop</Link>
 			</div>
 		</div>
 	)
