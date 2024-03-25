@@ -17,7 +17,7 @@ import { UserContext } from "../../context/UserContext";
 
 function OrderHistory() {
     let user = useContext(UserContext);
-    // console.log('user....',user);
+     console.log('user....',user);
     const [ orders, setOrders ] = useState([]);
     const [ products, setProducts ] = useState([]);
     const [ orderDetails, setOrderDetails ] = useState([]);

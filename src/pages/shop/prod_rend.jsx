@@ -14,7 +14,7 @@ export function ProdRend(props)
                 <h2>{props.name}</h2>
                 <h3>{props.price}</h3>
             </div>
-            <Link className="addToCartBttn" to={`/merch/${props.id}`}>Add to cart</Link>
+            <Link className="addToCartBttn" to={`/merch/${props.id}`}>Own it!!</Link>
         </div>
     );
 }
