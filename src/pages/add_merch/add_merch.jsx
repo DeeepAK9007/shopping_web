@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./add_merch.css";
 import { collection, addDoc } from "firebase/firestore";
 import { db, storage } from "../../helpers/firebase";
@@ -6,9 +6,11 @@ import "firebase/firestore";
 import {getDownloadURL, uploadBytes } from "firebase/storage";
 import {ref} from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext"
 
 function Merch()
 {
+    let user = useContext(UserContext);
     let navigate = useNavigate()
     const [name, setName] = useState('');
     const [club, setClub] = useState('');
@@ -27,7 +29,9 @@ function Merch()
             club: club,
             name: name,
             price: price,
-            photo: [imageUrl]
+            photo: [imageUrl],
+            owner: user.uid,
+            sizes: { "XS": 20, "S": 20, "M": 20, "L": 20 }
         });
 
         alert("your product has been added to database");

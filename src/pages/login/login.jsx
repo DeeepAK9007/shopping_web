@@ -13,6 +13,11 @@ export default function Login () {
     }
 
     return (
-        <button onClick={handleLogin}>Login with google</button>
+        <div class="login-section">
+            <div class="content">
+                <h1>Click below to Login or Sign up!</h1>
+                <button className="loginbutton" onClick={handleLogin}><img src="/google.png" />Login with google</button>
+            </div>
+        </div>
     )
 }

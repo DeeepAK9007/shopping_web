@@ -16,7 +16,7 @@ export default function MerchCard ({ merch }) {
             <img src={merch.photo[0]} alt="" />
             <div className="content">
                 <h2>{merch.name}</h2>
-                <h3>{merch.club} | {merch.type}</h3>
+                <h3>{merch.club}</h3>
                 <p>Price: {merch.price}</p>
                 <p>Sizes: {sizes}</p>
         </div>

@@ -5,6 +5,7 @@ h1{
 .out{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .cont{
@@ -16,4 +17,8 @@ h1{
 .right{
     margin-top: 150px;
     margin-left: 50px;
+}
+
+.prod_img{
+    height: 400px;
 }

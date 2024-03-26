@@ -10,7 +10,8 @@ export default async function getProducts () {
             id: doc.id,
             name: doc.get("name"),
             price: doc.get("price"),
-            photo: doc.get("photo")
+            photo: doc.get("photo"),
+            owner: doc.get("owner"),
         }
     })
 

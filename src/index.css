@@ -7,3 +7,35 @@
 body {
     font-family: sans-serif;
 }
+
+.login-section {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loginbutton {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid #aaaaaa;
+    padding: 5px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px auto;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.loginbutton:hover {
+    background-color: #eeeeee;
+}
+
+.loginbutton img {
+    max-height: 50px;
+    border-radius: 50%;
+}

@@ -53,7 +53,7 @@ function Buy()
 
     let [size,setsize]=useState('XS');
     let [delivery,setdeli]=useState('');
-    let [qnty,setqnty]=useState(0);
+    let [qnty,setqnty]=useState();
 
     // console.log(user.uid,size,delivery,qnty);
 
@@ -62,17 +62,18 @@ function Buy()
         <div className="out">
             <div className="cont">
                 <h1>{merch.name}</h1>
-                <img src={merch.photo[0]}/>
+                <img className="prod_img" src={merch.photo[0]}/>
             </div>
             <div className="cont right">
-                <div>
-                    <p>{merch.price}</p>
+                <div className="price">
+                    <p>Price: Rs.{merch.price}</p>
                 </div>
                 <div>
                     <form>
-                        <input type="number" placeholder="Quantity" value={qnty} required onChange={e => setqnty(e.target.value)}></input>
                         <br></br>
-                        <div>
+                        <input type="number" placeholder="Quantity" value={qnty} required onChange={e => setqnty(e.target.value)}></input>
+                        <br></br><br></br>
+                        <div className="size">
                             <label>Size</label>
                             <select  name = 'size' value={size} required onChange={e => setsize(e.target.value)}>
                                 <option>XS</option>
@@ -83,15 +84,8 @@ function Buy()
                         </div>
                         <br></br>
 
-                        <input type="text" placeholder="Address"  value={delivery} required onChange={e => setdeli(e.target.value)} />
+                        <textarea rows={5}  cols={30} placeholder="Address"  value={delivery} required onChange={e => setdeli(e.target.value)} />
                         <br />
-                        <input type="text" placeholder="City"/>
-                        <br /> 
-                        <input type="text" placeholder="State"/>
-                        <br />
-                        <input type="number" placeholder="Pincode"/>
-                        <br />
-                        <input type="text" placeholder="Conatct Number"></input>
                     
                     </form>
                         <button onClick={place_order}> Place order</button>
