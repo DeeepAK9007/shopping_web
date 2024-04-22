@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../helpers/firebase";
@@ -34,6 +34,8 @@ function Buy()
     
     // console.log(id);
 
+    let navigate=useNavigate();
+
     async function place_order(e)
     {
         // console.log('e....',e);
@@ -49,6 +51,7 @@ function Buy()
         })
 
         alert("your order has been placed successfully and is in transit");
+        navigate("/");
     }
 
     let [size,setsize]=useState('XS');
