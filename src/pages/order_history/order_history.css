@@ -14,3 +14,58 @@ h1{
     margin: 10px;
     width: 20%;
 }
+
+    const cardStyle = {
+        height:  '400px', 
+        width: '800px',   
+        backgroundColor: '#f0f0f0', 
+        border: '1px solid #ccc',   
+        borderRadius: '8px',       
+        padding: '16px',            
+        boxSizing: 'border-box',   
+    }
+
+    const centeredContainer = {
+        display: 'flex',
+        justifyContent: 'center', 
+        marginTop: '20px',
+        backgroundColor: '#f8f8f8', 
+    };
+
+    const pageStyle = {
+        backgroundColor: '#f8f8f8', 
+        minHeight: '100vh',
+    };
+
+
+    const cardTitle = {
+        fontSize: '16px',
+        fontWeight: 'bold',
+    };
+
+    const headerStyle = {
+        fontWeight: 'bold',
+        marginBottom: '10px',
+        textAlign: 'center'
+      };
+
+      const conditionStyle = {
+        fontWeight: 'bold',
+        margintop: '100px',
+        textAlign: 'center'
+      };
+
+    const titleStyle = {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        marginBottom: '10px',
+        color: '#333',
+        textAlign: 'center'
+      };
+
+    const detailStyle = {
+        fontSize: '16px',
+        marginBottom: '8px',
+        color: '#666',
+        fontWeight: 'bold'
+      };
